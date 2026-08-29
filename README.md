@@ -17,11 +17,11 @@ Official Ukrainian thesis title: **«Розробка та дослідженн�
 > (security sanitization, documentation) were made later; the original algorithmic behaviour
 > was not modernized. See [`docs/legacy-notes.md`](docs/legacy-notes.md).
 
-> ⚠️ **Migration in progress.** This repository is being built up from the original Google
-> Drive archive. Source code is imported and sanitized; several larger artefacts (thesis PDF,
-> Kaggle notebook, diagrams, defence materials, database schema) are verified but not yet
-> transferred due to a tooling limitation with binary file transfer — see
-> [`docs/artefact-index.md`](docs/artefact-index.md) for the full status of every artefact.
+> ⚠️ **Migration in progress.** The final thesis PDF, the Kaggle training notebook, and the
+> Flask HTML template are now included below. Diagrams, defence materials, the database
+> schema, and academic supporting documents are verified in the source archive but not yet
+> transferred — see [`docs/artefact-index.md`](docs/artefact-index.md) for the full status of
+> every artefact.
 
 ## 🧭 Quick navigation
 
@@ -34,6 +34,7 @@ Official Ukrainian thesis title: **«Розробка та дослідженн�
 | [🏗 Architecture](#-architecture) | System design |
 | [🏆 Selected model](#-selected-model--swin-transformer) | Swin Transformer + inference |
 | [🖥 Web application](#-web-application) | Flask/MySQL DSS |
+| [📓 Kaggle notebook](#-kaggle-notebook) | Original Swin Transformer training notebook |
 | [🎓 Academic work](#-academic-work) | Thesis, conference, approbation |
 | [📊 Thesis facts](#-thesis-facts) | Page/table/figure counts |
 | [🛠 Setup](#-setup--reproducibility) | What actually runs today |
@@ -143,9 +144,9 @@ A Flask application (`src/webapp/app.py`) exposes:
   back to the user.
 - `GET /getCaseHistoryCSV`, `GET /getPetsInfoCSV` — CSV export endpoints for the two tables.
 
-Templates and static assets referenced by the app (`templates/index.html`, `static/`) exist
-in the source Drive archive and are tracked as pending migration — see
-[`docs/artefact-index.md`](docs/artefact-index.md).
+The [`templates/index.html`](src/webapp/templates/index.html) template is included; the
+`static/` assets it references (CSS/JS/images) exist in the source Drive archive and are
+tracked as pending migration — see [`docs/artefact-index.md`](docs/artefact-index.md).
 
 ## 🗄 Database
 
@@ -154,11 +155,20 @@ directly in the application code: `PETS` and `CASE_HISTORY` (the latter storing
 `case_datetime`, `prediction_result`, `case_info`, and a `PETS_pet_id` foreign key). The full
 schema / ER diagram / `.mwb` file exist in the source archive and are pending migration.
 
+## 📓 Kaggle notebook
+
+The original training notebook, [`notebooks/pawpularity_swin_transformer.ipynb`](notebooks/pawpularity_swin_transformer.ipynb)
+(source: `fork-of-my-fork-of-pawpularity-swin-transformer.ipynb`), is included unmodified from
+the PetFinder.my – Pawpularity Contest submission. It trains the Swin Transformer ensemble
+described above. It is preserved as-is for provenance; running it today would require the
+original Kaggle GPU environment, the competition dataset, and the 2021/2022-era package
+versions (fastai, timm), none of which are bundled in this repository.
+
 ## 🎓 Academic work
 
 | Artefact | Description | Status |
 |---|---|---|
-| 📕 Master's Thesis (final, v14) | 161 pages, verified final version | Facts verified; PDF transfer pending (see artefact index) |
+| 📕 Master's Thesis (final, v14) | 161 pages | [`thesis/final/Антоневич_диплом_6_курс_2022_v14.pdf`](thesis/final/Антоневич_диплом_6_курс_2022_v14.pdf) |
 | 🎤 Defence presentation & speech | `2_defence/` | Pending migration |
 | 📄 Conference thesis | *"Development and Research of the Intelligent Technology for Predicting the Popularity of Animals From the Shelter"*, VIII International Scientific and Practical Conference "Information Technology and Implementation" (Satellite), 2021 | Pending migration |
 | ✅ Implementation certificate | From the Cherkasy City Society for the Protection of Animals "Друг" (Friend) | Pending migration |
@@ -196,8 +206,9 @@ Verified directly from the final thesis PDF (`Антоневич_диплом_6_
 
 **What is *not* verified to run today, and why:**
 
-- The Flask app imports `templates/index.html` and static assets that are not yet present in
-  this repository (pending migration — see [`docs/artefact-index.md`](docs/artefact-index.md)).
+- The Flask app's `templates/index.html` is included, but the `static/` assets it references
+  (CSS/JS/images) are not yet present in this repository (pending migration — see
+  [`docs/artefact-index.md`](docs/artefact-index.md)).
 - `neural_net_func.py` depends on `fastai`, `timm`, and pre-trained fold checkpoints
   (`model_fold_0` … `model_fold_6`) plus the PetFinder.my dataset layout under
   `static/dataset/petfinder-pawpularity-score/`, none of which are bundled here. The original
@@ -236,7 +247,14 @@ masters_diploma_2022/
 │   └── webapp/
 │       ├── app.py
 │       ├── database_func.py
-│       └── neural_net_func.py
+│       ├── neural_net_func.py
+│       └── templates/
+│           └── index.html
+├── notebooks/
+│   └── pawpularity_swin_transformer.ipynb
+├── thesis/
+│   └── final/
+│       └── Антоневич_диплом_6_курс_2022_v14.pdf
 └── docs/
     ├── legacy-notes.md
     └── artefact-index.md
