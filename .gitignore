@@ -1,0 +1,11 @@
+.DS_Store
+__pycache__/
+*.pyc
+.idea/
+.ipynb_checkpoints/
+.env
+.env.*
+!.env.example
+
+# uploads / runtime artefacts
+static/uploaded_images/
