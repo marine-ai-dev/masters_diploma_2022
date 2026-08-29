@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Master's Diploma - MA</title>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <script src="/static/js/additional_scripts.js"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="icon" href="/static/images/logo.svg">
+</head>
+<body class="is-boxed has-animations">
+<div class="body-wrap">
+    <header class="site-header">
+        <div class="container">
+            <div class="site-header-inner">
+                <div class="brand header-brand">
+                    <h1 class="m-0">
+                        <a href="#">
+                            <img class="header-logo-image" src="/static/images/logo.svg" alt="Logo" width="50"
+                                 height="50">
+                        </a>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-inner">
+                    <div class="hero-copy">
+                        <h1 class="hero-title mt-0">Development and research of the
+                            intelligent technology for determining the attractiveness
+                            of animals from the shelter</h1>
+                        <p class="hero-paragraph">
+                            <br/>Master's Diploma Project
+                            <br/>Made by Maryna Antonevych
+                            <br/>Kyiv-2022
+                        </p>
+
+                    </div>
+                    <div class="hero-figure anime-element">
+                        <svg class="placeholder" width="528" height="396" viewBox="0 0 528 396">
+                            <rect width="528" height="396" style="fill:transparent;"/>
+                        </svg>
+                        <div class="hero-figure-box hero-figure-box-01" data-rotation="45deg"></div>
+                        <div class="hero-figure-box hero-figure-box-02" data-rotation="-45deg"></div>
+                        <div class="hero-figure-box hero-figure-box-03" data-rotation="0deg"></div>
+                        <div class="hero-figure-box hero-figure-box-04" data-rotation="-135deg"></div>
+                        <div class="hero-figure-box hero-figure-box-05"></div>
+                        <div class="hero-figure-box hero-figure-box-06"></div>
+                        <div class="hero-figure-box hero-figure-box-07"></div>
+                        <div class="hero-figure-box hero-figure-box-08" data-rotation="-22deg"></div>
+                        <div class="hero-figure-box hero-figure-box-09" data-rotation="-52deg"></div>
+                        <div class="hero-figure-box hero-figure-box-10" data-rotation="-50deg"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features section">
+            <div class="container-sm">
+                <div class="features-inner section-inner has-bottom-divider">
+                    <div class="pricing-header text-center">
+                        <h2 class="section-title mt-0">Predict the attractiveness of pet</h2>
+                        <p class="section-paragraph mb-0">
+                            <br/>Millions of stray animals are injured on the streets every day around the world. So,
+                            what can be done, to help these animals to get new home?
+                            Scientists and researchers can suggest improvements that will help shelter animals to have a
+                            higher
+                            chance to be adopted with the help of data science. One of the solutions for this problem
+                            can be called one that will also use artificial intelligence.
+                            <br/>We intend to use a computer vision apparatus based on neural networks.
+                        </p>
+                    </div>
+
+                    <form action="/index.html" method="POST" enctype="multipart/form-data">
+                    <div class="features-wrap parent-for-flash" id="anchor-image-window">
+                        {# ВИВОДИМО ПОМИЛКУ, ЯКЩО БУЛА НАТИСНУТА КНОПКА "ANALYZE", АЛЕ ЗОБРАЖЕННЯ НЕ БУЛО ВИБРАНЕ #}
+                        {% with messages = get_flashed_messages(category_filter=['error']) %}
+                            {% if messages %}
+                                {% for msg in messages %}
+                                    <div class="flash-processing-image">
+                                        <div class="flash-window-processing-image">
+                                            <div class="section-paragraph mb-0">
+                                                {{msg}}
+                                            </div>
+                                            <br/>
+                                            <br/>
+                                            <button class="button button-primary close-button"
+                                                    onclick="delete_flash_no_image_uploaded()">
+                                                Ok
+                                            </button>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+
+                        {# ВИВОДИМО РЕЗУЛЬТАТ ПРОГНОЗУВАННЯ ПРИВАБЛИВОСТІ НА ЕКРАН #}
+                        {% with messages = get_flashed_messages(category_filter=['prediction-result']) %}
+                            {% if messages %}
+                                    <div class="flash-processing-image">
+                                        <div class="flash-window-processing-image">
+                                            <div class="section-paragraph mb-0">
+                                                <div> The record was successfully added to case history. </div>
+                                                <div> Prediction result: {{messages[0]}} </div>
+                                                <br/>
+                                                <div> Date: {{messages[1]}} </div>
+                                                <div> Time: {{messages[2]}} </div>
+                                            </div>
+                                            <br/>
+                                            <br/>
+                                            <br />
+                                            <button class="button button-primary close-button"
+                                                    onclick="delete_flash_no_image_uploaded()">
+                                                Ok
+                                            </button>
+                                        </div>
+                                    </div>
+                            {% endif %}
+                        {% endwith %}
+
+                        {#  РОБИМО ВИДНИМ БЛОК ІЗ "АНІМАЦІЄЮ" КОЛЕСА ЗАВАНТАЖЕННЯ #}
+                        <div class="loading-div-icon">
+
+                        </div>
+
+                        <div class="feature text-center is-revealing">
+                            <div class="feature-inner">
+
+                                <div class="view-image">
+                                    <img class="choose-image" alt="Please, download an image" id="my-image">
+                                </div>
+                                <br/>
+                                <div class="hero-cta">
+                                        <label for="choose-file" class="button button-primary">Choose File</label>
+                                        <input type="file" name="file-image" class="button button-primary" id="choose-file"
+                                               accept=".png, .jpg, .jpeg'" style="display: none;"
+                                               onchange="previewImage(event)"/>
+                                </div>
+                                <br/>
+                                <div class="hero-cta">
+                                    <button class="button button-primary" type="submit"
+                                            onclick="showLoadingIcon(event);">Analyze</button>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="feature text-center is-revealing">
+                            <div class="feature-inner">
+                                <div class="div-text-area">
+                                    <textarea placeholder=">> Input something here about this animal."
+                                              name="text_area_1"></textarea>
+                                </div>
+
+                                <br/>
+
+                                <div class="hero-cta">
+                                    <select class="button button-primary" name="select_1">
+                                        <option disabled selected>Choose pet</option>
+                                        {% for row in records%}
+							            <option value="{{row[0]}}/{{row[1]}}/{{row[2]}}/{{row[3]}}/{{row[4]}}">{{row[1]}} / {{row[3]}}</option>
+							            {% endfor %}
+                                    </select>
+                                </div>
+                                <br/>
+                                <div class="hero-cta">
+                                    <a class="button button-primary" href="javascript:window.location.reload(true)">Try again</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    </form>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="features section">
+            <div class="container-sm">
+                <div class="features-inner section-inner has-bottom-divider">
+                    <div class="pricing-header text-center">
+                        <h2 class="section-title mt-0">Get information from Database</h2>
+                        <p class="section-paragraph mb-0">
+                            <br/>Here you can get information from database: full history of cases or info about shelter pets.
+                        </p>
+                    </div>
+
+
+                    <div class="features-wrap parent-for-flash" id="anchor-image-window">
+
+                            <div class="feature text-center is-revealing">
+                                <div class="feature-inner">
+                                    <div class="hero-cta">
+                                        <a class="button button-primary" href="/getCaseHistoryCSV">Case history</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="feature text-center is-revealing">
+                                <div class="feature-inner">
+
+                                    <div class="hero-cta">
+                                        <a class="button button-primary" href="/getPetsInfoCSV">Pets info</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing section">
+            <div class="container-sm">
+                <div class="pricing-inner section-inner">
+                    <div class="pricing-header text-center">
+                        <h2 class="section-title mt-0">Neural Network Model</h2>
+                        <p class="section-paragraph mb-0">
+                            <br/>Millions of stray animals are injured on the streets every day around the world. So,
+                            what can be done, to help these animals to get new home?
+                            Scientists and researchers can suggest improvements that will help shelter animals to have a
+                            higher
+                            chance to be adopted with the help of data science. One of the solutions for this problem
+                            can be called one that will also use artificial intelligence.
+                            <br/>We intend to use a computer vision apparatus based on neural networks.
+                        </p>
+                    </div>
+                    <div class="pricing-tables-wrap">
+                        <div class="pricing-table">
+                            <div class="pricing-table-inner is-revealing">
+                                <div class="pricing-table-main">
+                                    <div class="pricing-table-header pb-24">
+                                        <div class="pricing-table-price">
+                                            <span class="pricing-table-price-amount h1">Parameters</span>
+                                        </div>
+                                    </div>
+
+                                    <ul class="pricing-table-features list-reset text-xs">
+                                        <li>
+                                            <span>GPU</span>
+                                        </li>
+                                        <li>
+                                            <span>timm, fastai & sklearn</span>
+                                        </li>
+                                        <li>
+                                            <span>N_FOLDS = 7</span>
+                                        </li>
+                                        <li>
+                                            <span>batch_size = 8</span>
+                                        </li>
+                                        <li>
+                                            <span>learning rate = 2e-5</span>
+                                        </li>
+
+
+                                    </ul>
+                                </div>
+                                <div class="pricing-table-cta mb-8">
+                                    <a class="button button-primary button-shadow button-block"
+                                       href="https://docs.fast.ai/" target="_blank">
+                                        Read more about fast.ai
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta section">
+            <div class="container">
+                <div class="cta-inner section-inner">
+                    <h3 class="section-title mt-0">PetFinder.my - Pawpularity Contest Kaggle Competition</h3>
+                    <div class="cta-cta">
+                        <a class="button button-primary button-wide-mobile"
+                           href="https://www.kaggle.com/competitions/petfinder-pawpularity-score" target="_blank">
+                            Visit Kaggle</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="site-footer-inner">
+                <div class="brand footer-brand">
+                    <a href="#">
+                        <img class="header-logo-image" src="/static/images/logo.svg" alt="Logo" width="50" height="50">
+                    </a>
+                </div>
+                <ul class="footer-links list-reset">
+                    <li>
+                        <a href="mailto: marina.antonevich@gmail.com">Contact via email</a>
+                    </li>
+                    <li>
+                        <a href="http://www.univ.kiev.ua/en/" target="_blank">University</a>
+                    </li>
+                    <li>
+                        <a href="http://fit.univ.kiev.ua/en/" target="_blank">Faculty</a>
+                    </li>
+                    <li>
+                        <a href="https://www.kaggle.com/maricinnamon" target="_blank">Kaggle</a>
+                    </li>
+                </ul>
+                <ul class="footer-social-links list-reset">
+                    <li>
+                        <a href="https://www.facebook.com" target="_blank">
+                            <img class="header-logo-image" src="/static/images/facebook_logo.svg" alt="FB Logo"
+                                 width="20" height="20">
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/" target="_blank">
+                            <img class="header-logo-image" src="/static/images/instagram_logo.svg" alt="Logo" width="20"
+                                 height="20">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.kaggle.com/" target="_blank">
+                            <img class="header-logo-image" src="/static/images/kaggle_logo.svg" alt="Logo" width="20"
+                                 height="20">
+                        </a>
+                    </li>
+                </ul>
+                <div class="footer-copyright">&copy; Project was made in educational purposes with Solid, Landing
+                    template for startups
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script src="/static/js/main.min.js"></script>
+</body>
+</html>
