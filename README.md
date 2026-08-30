@@ -199,9 +199,7 @@ intentionally excluded — they include third-party brand logos (Facebook, Insta
 from the HTML template this site was built on, whose redistribution rights are unclear; see
 [`docs/artefact-index.md`](docs/artefact-index.md).
 
-<details>
-<summary><strong>🖼 Web application screenshots (from the defence presentation)</strong></summary>
-<br>
+### 🖼 Web application screenshots (from the defence presentation)
 
 <p align="center">
   <img src="assets/screenshots/webapp_hero_screenshot.png" alt="Web application hero screen" width="700"><br>
@@ -242,8 +240,6 @@ from the HTML template this site was built on, whose redistribution rights are u
   <img src="assets/screenshots/webapp_footer.png" alt="Web application footer" width="700"><br>
   <em>Footer with attribution and contact links</em>
 </p>
-
-</details>
 
 ## 🗄 Database
 
