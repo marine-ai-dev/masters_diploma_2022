@@ -114,16 +114,32 @@ flowchart TD
 ```
 
 Per the thesis conclusions, more than 30 experiments were run comparing convolutional neural
-networks (Xception) against transformer architectures (Swin Transformer); Swin Transformer
-produced better final results than the convolutional baselines. As one verified data point
-from the defence presentation: the first convolutional-network experiment scored a Private
-Score of 21.95–28.28 (RMSE), while a later Swin Transformer experiment (#5, 7-fold CV)
-scored 17.08 Private / 17.90 Public — a meaningfully lower RMSE.
+networks (Xception) against transformer architectures (Swin Transformer). The defence
+presentation includes a summary table for the six representative models that were carried
+through to final comparison — reproduced here exactly as presented (RMSE, lower is better):
+
+| Model | Type | Library | Runtime (GPU) | Private Score | Public Score |
+|---|---|---|---|---|---|
+| Model-4 | Custom convolutional | tensorflow.keras | 4664.8s | 21.95402 | 21.94387 |
+| Model-6 | Xception | tensorflow.keras | 3141.3s | 24.04538 | 24.01819 |
+| Model-11 | Xception | tensorflow.keras | 2539.1s | 20.51204 | 20.50848 |
+| Model-18 | Swin Transformer | fastai | 17911.1s | 17.16304 | 17.80600 |
+| Model-22 | Swin Transformer | fastai | 20498.9s | 17.11781 | 17.83321 |
+| **Model-34** (selected) | **Swin Transformer** | fastai | 20217.6s | **17.08097** | 17.90201 |
+
+**Model-34** — the Swin Transformer configuration with the best Private Score — was the one
+integrated into the web application. Convolutional networks (both the custom architecture and
+Xception) consistently scored worse than every Swin Transformer run.
+
+<p align="center">
+  <img src="assets/research/experiments_summary_table.png" alt="Experiments summary table from the defence presentation" width="800">
+</p>
+<p align="center"><em>Original summary slide from the defence presentation (source for the table above).</em></p>
 
 <p align="center">
   <img src="assets/research/experiment_5_swin_transformer_scores.png" alt="Experiment 5 — Swin Transformer scores" width="600">
 </p>
-<p align="center"><em>Experiment #5 (Swin Transformer, 7-fold CV) from the defence presentation.</em></p>
+<p align="center"><em>Experiment #5 (Swin Transformer, 7-fold CV) — one individual experiment slide, for detail.</em></p>
 
 ## 🏗 Architecture
 
@@ -143,6 +159,11 @@ This reflects the actual code in [`src/webapp/app.py`](src/webapp/app.py) and
 temporarily, scored by `predict_attractiveness`, the result is written to a `CASE_HISTORY`
 table alongside the selected `PETS` record, and the temporary image file is deleted.
 
+<p align="center">
+  <img src="assets/architecture/function_tree_diagram.png" alt="Function tree diagram" width="750"><br>
+  <em>Function tree: input processing, attractiveness prediction, and reporting</em>
+</p>
+
 ## 🏆 Selected model — Swin Transformer
 
 The inference implementation in `neural_net_func.py` confirms the following verified
@@ -158,6 +179,10 @@ technical details:
 - Output scaled to a 0–100 pawpularity score.
 
 ## 🖥 Web application
+
+<p align="center">
+  <img src="assets/screenshots/webapp_section_divider.png" alt="Web application section divider" width="750">
+</p>
 
 A Flask application (`src/webapp/app.py`) exposes:
 
@@ -179,13 +204,33 @@ from the HTML template this site was built on, whose redistribution rights are u
 <br>
 
 <p align="center">
+  <img src="assets/screenshots/webapp_hero_screenshot.png" alt="Web application hero screen" width="700"><br>
+  <em>Landing screen</em>
+</p>
+
+<p align="center">
+  <img src="assets/screenshots/webapp_predict_section.png" alt="Web application predict section" width="700"><br>
+  <em>"Predict the attractiveness of pet" section</em>
+</p>
+
+<p align="center">
   <img src="assets/screenshots/webapp_upload_ui.png" alt="Web application upload UI" width="700"><br>
-  <em>Photo upload and pet-selection UI</em>
+  <em>Photo upload and pet-selection UI (annotated)</em>
+</p>
+
+<p align="center">
+  <img src="assets/screenshots/webapp_model_parameters.png" alt="Web application model parameters section" width="700"><br>
+  <em>Model parameters shown in the app (GPU, timm/fastai/sklearn, N_FOLDS=7, batch_size=8, learning rate=2e-5)</em>
 </p>
 
 <p align="center">
   <img src="assets/screenshots/webapp_database_export_ui.png" alt="Web application database export UI" width="700"><br>
-  <em>Database export UI (case history / pets info as CSV)</em>
+  <em>Database export UI (case history / pets info as CSV, annotated)</em>
+</p>
+
+<p align="center">
+  <img src="assets/screenshots/database_pets_table.png" alt="PETS table with real data" width="700"><br>
+  <em>MySQL PETS table (matches <a href="database/sample_data/pets_data.csv">database/sample_data/pets_data.csv</a>)</em>
 </p>
 
 <p align="center">
