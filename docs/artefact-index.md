@@ -19,6 +19,18 @@ Destination: this repository (`marine-ai-dev/masters_diploma_2022`).
 | Database schema | `database/schema/Antonevych_database_diploma_6_kurs.mwb` | `eee3ebe80b603e7b8a4029b089172fe7ae4f905649eaa74069d2074976fa1b75` | MySQL Workbench model. `.mwb.bak` backup file excluded as redundant. |
 | Database ER diagrams | `database/diagrams/ERR_diagram_diploma_6_kurs.png`, `ERR_diagram_diploma_6_kurs_2.png` | `a8209a69d1bae13e6577982e95cf685ac12d0961ab75cdd2c65bc28c2cfc18a4`, `be561ffe62552f2c7272571e9ea55945daf018a047056ad6d3b7f6084acd100f` | Source `.paint` project file excluded (proprietary format, PNG exports are sufficient). |
 | Database sample data | `database/sample_data/pets_data.csv` | `0a4afaf7468b814fd8ca9f54d5f2ff55fcd0b2a9bc45a7587d74fd8939435590` | Test/placeholder pet records only (Rosie Meow, Reks, Tom, …) — no real shelter data or credentials. |
+| Flask static CSS | `src/webapp/static/css/style.css` | `ab942736154223bdf3db38d60342059206474f212f5c06c502cea2383868b61d` | Retrieved via Drive API, decoded and byte-verified (exact size match) without manual retyping. |
+| Flask static JS | `src/webapp/static/js/additional_scripts.js` | `519e7c01cbd76843e61acfeaa737ac43691571a3f1a2af156dc26c46511af692` | Same method; exact size match. |
+| Flask static JS | `src/webapp/static/js/main.min.js` | `af32a924d56ac55b11e485739dd8106d197d1a2e4633534cdba6cf0184ee9806` | First attempt at this file had a 24-byte transcription error caught by comparing decoded size against Drive metadata; re-decoded via a file-based (non-retyped) path with matching size. |
+| Implementation certificate | `academic/implementation-certificate/Антоневич_довідка_про_впровадження_диплом_6_курс_2022.pdf` | `64fb9257de9ec975ae21469774b633650ba949eb816cfb365d94ab8c2ede8b72` | From the Cherkasy City Society for the Protection of Animals "Друг". |
+| Supervisor review | `academic/supervisor-review/Антоневич_відгук_керівника_диплом_6_курс_2022_v2.pdf` | `d152aba3378c9b2f11940e48532df2745d1815945f6bdbff00a88123e2099341` | Final v2. |
+| Reviewer report | `academic/reviewer-report/Антоневич_рецензія_диплом_6_курс_2022_v3.docx` | `e7484e80bad915662882af736ad0ae192d7b1f0b63b05c45e8e128faaddee7d0` | Final v3; original filename had a duplicate-download `(2)` suffix, renamed for clarity. |
+| Curated diagram | `assets/architecture/structure_diagram.png` | `30ff6e62f3b51f0eb75a0938e1fbd201e7c11dc64e9a3afdb88035c7aa97c69e` | Project structure diagram, original author's work. |
+| Curated diagram | `assets/architecture/neural_network_diagram.png` | `17ff29b7f31870609b1014e4529b9a285bd5f2f1c33b43bd25c13fa462c67eca` | Neural network diagram. |
+| Curated diagram | `assets/research/research_logical_structure.png` | `6102ff9773db9aebf646cd7a5d076169332ddde7504225eec7affd5f55c09878` | Research methodology / logical structure diagram. |
+| Curated diagram | `assets/research/k_fold_diagram.png` | `775960aae575765f1bb970357019bdf4daeaf81a29d627307f7cd6073f3c8a7e` | Stratified K-fold cross-validation diagram. |
+| Curated diagram | `assets/research/pattern_recognition_systems.png` | `4c73d98c2821234103ddefc5c140dde26365b6c162589f074545c646dd1d1238` | Pattern-recognition systems comparison diagram. |
+| Curated diagram | `assets/ui/website_page_diagram.png` | `598dc96c82da7d3b6782c43a6cd1a3effda76edc27ba9ea628b5ec6e2ab4cc95` | One representative web-app page/interface diagram (1 of 6 available; the rest remain in the source Drive archive to avoid an unstructured image dump). |
 | Security/config notes | `docs/legacy-notes.md` | — | Documents the exact sanitization diff and a transcription-fidelity caveat. |
 | Environment template | `.env.example` | — | Placeholders only. |
 
@@ -29,17 +41,14 @@ session, or downloaded directly by the repository owner) and moved into the repo
 base64 text. SHA-256 hashes were verified identical between the Drive download and the
 repository copy for every file listed with a hash above.
 
-## Blocked by tooling — not yet migrated
+## Not migrated
 
 | Artefact | Drive location | Size | Status |
 |---|---|---|---|
 | Final thesis (DOCX) | `1_zvit/Антоневич_диплом_6_курс_2022_v14.docx` | 40.6 MB | Exceeds repository size gate (>25MB); excluded regardless of transfer feasibility |
-| Flask static assets | `website/Antonevych_website_diploma_6_kurs_2022/static/` | — | Not yet migrated |
-| Diagrams / images | `9_images_and_diagrams/` | — | Not yet migrated |
-| Implementation certificate | `6_dovidka_pro_vprovadzhennya/` | — | Not yet migrated |
-| Supervisor review | `7_vidguk_kerivnyka/` | — | Not yet migrated |
-| Reviewer report | `8_retsenziia/` | — | Not yet migrated |
-| Sample CSVs | `website/.../pets-info.csv`, `case-history.csv` | <1 KB each | Small enough to be feasible; not yet migrated in this session |
+| Sample CSVs | `website/.../pets-info.csv`, `case-history.csv` | <1 KB each | Redundant with `database/sample_data/pets_data.csv`; not migrated |
+| Remaining 5 of 6 website-page diagrams | `9_images_and_diagrams/Pawpularity_diploma_website_template-Page-{2..6}.drawio.png` | — | One representative page diagram is included (`assets/ui/website_page_diagram.png`); the rest remain in Drive to avoid an image dump |
+| Screenshot-style images (`image_2022-04-23_*.png`) | `9_images_and_diagrams/` | — | Ambiguous/undocumented content; not curated in |
 
 ## Excluded intentionally
 
@@ -47,8 +56,14 @@ repository copy for every file listed with a hash above.
 |---|---|
 | Thesis drafts v1–v13 | Superseded by final v14; remain in the Drive source archive |
 | `.DS_Store`, `__pycache__`, `.idea`, `.ipynb_checkpoints` | Editor/OS metadata, not source |
-| Multi-GB video recordings (`15_videozapys_roboty_web-dodatku`, `16_videozapys_roboty_bazy_danykh`) | Exceed any reasonable Git file-size policy; should be linked from `docs/demo.md`, not committed |
-| Full PetFinder.my Pawpularity Kaggle dataset | Third-party dataset with its own licensing; not redistributed here |
+| Multi-GB video recordings (`15_videozapys_roboty_web-dodatku`, `16_videozapys_roboty_bazy_danykh`) | Exceed any reasonable Git file-size policy; linked from `docs/demo.md` instead |
+| Full PetFinder.my Pawpularity Kaggle dataset (`static/dataset/`) | Third-party dataset with its own licensing; not redistributed here |
+| Trained model checkpoints (`static/models/`, `model_fold_0`…`model_fold_6`) | ~15 GB of binary weights; excluded per explicit repository-owner instruction, remain in the source Drive archive |
+| `static/images/` (loader.gif/svg, hero/pricing/cta illustrations, logo.svg, facebook/instagram/kaggle brand logos) | Bundled third-party HTML template assets with unclear redistribution rights; several are official third-party brand logos |
+| `database/schema/Antonevych_database_diploma_6_kurs.mwb.bak` | Redundant backup of the included `.mwb` |
+| `database/diagrams/ERR_diagram_diploma_6_kurs_2.paint` | Proprietary format; PNG exports already included |
+| `Антоневич_відгук_керівника_диплом_6_курс_2022` (JPEG scan) | Redundant with the included PDF of the same document |
+| `2_defence/pptx_templates/` | Third-party PowerPoint design template, not project content |
 
 ## Preserved externally
 

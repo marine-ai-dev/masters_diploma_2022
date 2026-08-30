@@ -17,19 +17,30 @@ Official Ukrainian thesis title: **«Розробка та дослідженн�
 > (security sanitization, documentation) were made later; the original algorithmic behaviour
 > was not modernized. See [`docs/legacy-notes.md`](docs/legacy-notes.md).
 
-> ⚠️ **Migration in progress.** The final thesis, Kaggle notebook, Flask template, database
-> schema/ER diagram, defence presentation and speech, and the conference thesis are now
-> included below. The Flask `static/` assets, implementation certificate, and supervisor/
-> reviewer reports are verified in the source archive but not yet transferred — see
-> [`docs/artefact-index.md`](docs/artefact-index.md) for the full status of every artefact.
+This archive includes the final thesis, Kaggle notebook, sanitized Flask source (including
+CSS/JS), database schema and ER diagram, defence presentation and speech, the conference
+thesis, the implementation certificate, and the supervisor/reviewer reports. A small number of
+items remain intentionally excluded (third-party template icons/stock photography, the full
+Kaggle dataset, trained model checkpoints, and multi-GB video recordings) — see
+[`docs/artefact-index.md`](docs/artefact-index.md) for the complete, itemized status.
 
 ## 🖼 Project preview
 
 <p align="center">
-  <img src="database/diagrams/ERR_diagram_diploma_6_kurs_2.png" alt="Database ER diagram" width="600">
+  <img src="assets/architecture/structure_diagram.png" alt="Project structure diagram" width="700"><br>
+  <em>Overall project structure</em>
 </p>
 
-<p align="center"><em>Entity-relationship diagram of the MySQL database (PETS / CASE_HISTORY).</em></p>
+<p align="center">
+  <img src="assets/research/research_logical_structure.png" alt="Research logical structure diagram" width="500">
+  <img src="assets/research/k_fold_diagram.png" alt="K-fold cross-validation diagram" width="260">
+</p>
+<p align="center"><em>Research methodology (left) and stratified K-fold cross-validation (right)</em></p>
+
+<p align="center">
+  <img src="database/diagrams/ERR_diagram_diploma_6_kurs_2.png" alt="Database ER diagram" width="600"><br>
+  <em>Database ER diagram (PETS / CASE_HISTORY)</em>
+</p>
 
 ## 🧭 Quick navigation
 
@@ -152,9 +163,12 @@ A Flask application (`src/webapp/app.py`) exposes:
   back to the user.
 - `GET /getCaseHistoryCSV`, `GET /getPetsInfoCSV` — CSV export endpoints for the two tables.
 
-The [`templates/index.html`](src/webapp/templates/index.html) template is included; the
-`static/` assets it references (CSS/JS/images) exist in the source Drive archive and are
-tracked as pending migration — see [`docs/artefact-index.md`](docs/artefact-index.md).
+The [`templates/index.html`](src/webapp/templates/index.html) template is included, along
+with the real [`static/css/style.css`](src/webapp/static/css/style.css) and
+[`static/js/`](src/webapp/static/js/) it references. The `static/images/` assets are
+intentionally excluded — they include third-party brand logos (Facebook, Instagram, Kaggle)
+from the HTML template this site was built on, whose redistribution rights are unclear; see
+[`docs/artefact-index.md`](docs/artefact-index.md).
 
 ## 🗄 Database
 
@@ -185,8 +199,9 @@ versions (fastai, timm), none of which are bundled in this repository.
 | 🎤 Defence presentation | Final defence slides (v3) | [`defence/presentation/Антоневич_презентація_диплом_6_курс_2022_v3.pptx`](defence/presentation/Антоневич_презентація_диплом_6_курс_2022_v3.pptx) |
 | 🗣 Defence speech | Presentation script | [`defence/speech/Антоневич_текст_доповіді_диплом_6_курс_2022.pdf`](defence/speech/Антоневич_текст_доповіді_диплом_6_курс_2022.pdf) |
 | 📄 Conference thesis | *"Development and Research of the Intelligent Technology for Predicting the Popularity of Animals From the Shelter"*, VIII International Scientific and Practical Conference "Information Technology and Implementation" (Satellite), 2021 | [`publications/conference/Антоневич_тези_диплом_6_курс_2022.pdf`](publications/conference/Антоневич_тези_диплом_6_курс_2022.pdf) |
-| ✅ Implementation certificate | From the Cherkasy City Society for the Protection of Animals "Друг" (Friend) | Pending migration |
-| 📝 Supervisor review / reviewer report | `7_vidguk_kerivnyka/`, `8_retsenziia/` | Pending migration |
+| ✅ Implementation certificate | From the Cherkasy City Society for the Protection of Animals "Друг" (Friend) | [`academic/implementation-certificate/`](academic/implementation-certificate/) |
+| 📝 Supervisor review | Снитюк В. Є. | [`academic/supervisor-review/`](academic/supervisor-review/) |
+| 📝 Reviewer report | | [`academic/reviewer-report/`](academic/reviewer-report/) |
 
 ### 🇺🇦 Короткий опис українською
 
@@ -220,9 +235,8 @@ Verified directly from the final thesis PDF (`Антоневич_диплом_6_
 
 **What is *not* verified to run today, and why:**
 
-- The Flask app's `templates/index.html` is included, but the `static/` assets it references
-  (CSS/JS/images) are not yet present in this repository (pending migration — see
-  [`docs/artefact-index.md`](docs/artefact-index.md)).
+- `static/images/` (third-party template icons/logos) is intentionally excluded — see
+  [`docs/artefact-index.md`](docs/artefact-index.md).
 - `neural_net_func.py` depends on `fastai`, `timm`, and pre-trained fold checkpoints
   (`model_fold_0` … `model_fold_6`) plus the PetFinder.my dataset layout under
   `static/dataset/petfinder-pawpularity-score/`, none of which are bundled here. The original
@@ -262,8 +276,11 @@ masters_diploma_2022/
 │       ├── app.py
 │       ├── database_func.py
 │       ├── neural_net_func.py
-│       └── templates/
-│           └── index.html
+│       ├── templates/
+│       │   └── index.html
+│       └── static/
+│           ├── css/style.css
+│           └── js/
 ├── notebooks/
 │   └── pawpularity_swin_transformer.ipynb
 ├── thesis/
@@ -284,6 +301,14 @@ masters_diploma_2022/
 ├── publications/
 │   └── conference/
 │       └── Антоневич_тези_диплом_6_курс_2022.pdf
+├── academic/
+│   ├── implementation-certificate/
+│   ├── supervisor-review/
+│   └── reviewer-report/
+├── assets/
+│   ├── architecture/
+│   ├── research/
+│   └── ui/
 └── docs/
     ├── legacy-notes.md
     ├── demo.md
