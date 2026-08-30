@@ -1,0 +1,11 @@
+pet_id,pet_category,pet_breed,pet_name,pet_age,pet_gender
+1,cat,outbred,"Rosie Meow",1,F
+2,dog,outbred,Reks,2,M
+3,cat,outbred,Tom,2,M
+4,cat,outbred,Minnie,4,F
+5,dog,outbred,Duke,4,M
+6,dog,outbred,Leon,9,M
+7,cat,outbred,Saun,2,M
+8,dog,outbred,"Mars ",1,M
+9,cat,outbred,"Lili Luna",3,F
+10,dog,outbred,"Maks ",4,M

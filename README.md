@@ -17,11 +17,19 @@ Official Ukrainian thesis title: **«Розробка та дослідженн�
 > (security sanitization, documentation) were made later; the original algorithmic behaviour
 > was not modernized. See [`docs/legacy-notes.md`](docs/legacy-notes.md).
 
-> ⚠️ **Migration in progress.** The final thesis PDF, the Kaggle training notebook, and the
-> Flask HTML template are now included below. Diagrams, defence materials, the database
-> schema, and academic supporting documents are verified in the source archive but not yet
-> transferred — see [`docs/artefact-index.md`](docs/artefact-index.md) for the full status of
-> every artefact.
+> ⚠️ **Migration in progress.** The final thesis, Kaggle notebook, Flask template, database
+> schema/ER diagram, defence presentation and speech, and the conference thesis are now
+> included below. The Flask `static/` assets, implementation certificate, and supervisor/
+> reviewer reports are verified in the source archive but not yet transferred — see
+> [`docs/artefact-index.md`](docs/artefact-index.md) for the full status of every artefact.
+
+## 🖼 Project preview
+
+<p align="center">
+  <img src="database/diagrams/ERR_diagram_diploma_6_kurs_2.png" alt="Database ER diagram" width="600">
+</p>
+
+<p align="center"><em>Entity-relationship diagram of the MySQL database (PETS / CASE_HISTORY).</em></p>
 
 ## 🧭 Quick navigation
 
@@ -152,8 +160,13 @@ tracked as pending migration — see [`docs/artefact-index.md`](docs/artefact-in
 
 The application connects to a MySQL database (`database_func.py`) with two tables referenced
 directly in the application code: `PETS` and `CASE_HISTORY` (the latter storing
-`case_datetime`, `prediction_result`, `case_info`, and a `PETS_pet_id` foreign key). The full
-schema / ER diagram / `.mwb` file exist in the source archive and are pending migration.
+`case_datetime`, `prediction_result`, `case_info`, and a `PETS_pet_id` foreign key).
+
+The real schema and ER diagram are included:
+
+- [`database/schema/Antonevych_database_diploma_6_kurs.mwb`](database/schema/Antonevych_database_diploma_6_kurs.mwb) — MySQL Workbench model
+- [`database/diagrams/ERR_diagram_diploma_6_kurs_2.png`](database/diagrams/ERR_diagram_diploma_6_kurs_2.png) — ER diagram
+- [`database/sample_data/pets_data.csv`](database/sample_data/pets_data.csv) — small project-owned sample of `PETS` rows (test data, no real shelter records)
 
 ## 📓 Kaggle notebook
 
@@ -169,8 +182,9 @@ versions (fastai, timm), none of which are bundled in this repository.
 | Artefact | Description | Status |
 |---|---|---|
 | 📕 Master's Thesis (final, v14) | 161 pages | [`thesis/final/Антоневич_диплом_6_курс_2022_v14.pdf`](thesis/final/Антоневич_диплом_6_курс_2022_v14.pdf) |
-| 🎤 Defence presentation & speech | `2_defence/` | Pending migration |
-| 📄 Conference thesis | *"Development and Research of the Intelligent Technology for Predicting the Popularity of Animals From the Shelter"*, VIII International Scientific and Practical Conference "Information Technology and Implementation" (Satellite), 2021 | Pending migration |
+| 🎤 Defence presentation | Final defence slides (v3) | [`defence/presentation/Антоневич_презентація_диплом_6_курс_2022_v3.pptx`](defence/presentation/Антоневич_презентація_диплом_6_курс_2022_v3.pptx) |
+| 🗣 Defence speech | Presentation script | [`defence/speech/Антоневич_текст_доповіді_диплом_6_курс_2022.pdf`](defence/speech/Антоневич_текст_доповіді_диплом_6_курс_2022.pdf) |
+| 📄 Conference thesis | *"Development and Research of the Intelligent Technology for Predicting the Popularity of Animals From the Shelter"*, VIII International Scientific and Practical Conference "Information Technology and Implementation" (Satellite), 2021 | [`publications/conference/Антоневич_тези_диплом_6_курс_2022.pdf`](publications/conference/Антоневич_тези_диплом_6_курс_2022.pdf) |
 | ✅ Implementation certificate | From the Cherkasy City Society for the Protection of Animals "Друг" (Friend) | Pending migration |
 | 📝 Supervisor review / reviewer report | `7_vidguk_kerivnyka/`, `8_retsenziia/` | Pending migration |
 
@@ -255,8 +269,24 @@ masters_diploma_2022/
 ├── thesis/
 │   └── final/
 │       └── Антоневич_диплом_6_курс_2022_v14.pdf
+├── defence/
+│   ├── presentation/
+│   │   └── Антоневич_презентація_диплом_6_курс_2022_v3.pptx
+│   └── speech/
+│       └── Антоневич_текст_доповіді_диплом_6_курс_2022.pdf
+├── database/
+│   ├── schema/
+│   │   └── Antonevych_database_diploma_6_kurs.mwb
+│   ├── diagrams/
+│   │   └── ERR_diagram_diploma_6_kurs_2.png
+│   └── sample_data/
+│       └── pets_data.csv
+├── publications/
+│   └── conference/
+│       └── Антоневич_тези_диплом_6_курс_2022.pdf
 └── docs/
     ├── legacy-notes.md
+    ├── demo.md
     └── artefact-index.md
 ```
 
