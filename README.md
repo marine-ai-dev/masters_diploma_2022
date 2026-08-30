@@ -115,11 +115,15 @@ flowchart TD
 
 Per the thesis conclusions, more than 30 experiments were run comparing convolutional neural
 networks (Xception) against transformer architectures (Swin Transformer); Swin Transformer
-produced better final results than the convolutional baselines. Exact per-experiment
-RMSE/ranking tables are in the thesis (see [Thesis facts](#-thesis-facts)) and have not yet
-been re-transcribed into this repository — no specific numeric results are claimed here
-beyond what is stated above, to avoid inventing figures that were not independently verified
-in this session.
+produced better final results than the convolutional baselines. As one verified data point
+from the defence presentation: the first convolutional-network experiment scored a Private
+Score of 21.95–28.28 (RMSE), while a later Swin Transformer experiment (#5, 7-fold CV)
+scored 17.08 Private / 17.90 Public — a meaningfully lower RMSE.
+
+<p align="center">
+  <img src="assets/research/experiment_5_swin_transformer_scores.png" alt="Experiment 5 — Swin Transformer scores" width="600">
+</p>
+<p align="center"><em>Experiment #5 (Swin Transformer, 7-fold CV) from the defence presentation.</em></p>
 
 ## 🏗 Architecture
 
@@ -170,6 +174,27 @@ intentionally excluded — they include third-party brand logos (Facebook, Insta
 from the HTML template this site was built on, whose redistribution rights are unclear; see
 [`docs/artefact-index.md`](docs/artefact-index.md).
 
+<details>
+<summary><strong>🖼 Web application screenshots (from the defence presentation)</strong></summary>
+<br>
+
+<p align="center">
+  <img src="assets/screenshots/webapp_upload_ui.png" alt="Web application upload UI" width="700"><br>
+  <em>Photo upload and pet-selection UI</em>
+</p>
+
+<p align="center">
+  <img src="assets/screenshots/webapp_database_export_ui.png" alt="Web application database export UI" width="700"><br>
+  <em>Database export UI (case history / pets info as CSV)</em>
+</p>
+
+<p align="center">
+  <img src="assets/screenshots/database_case_history_result.png" alt="CASE_HISTORY table with a real prediction result" width="700"><br>
+  <em>MySQL CASE_HISTORY table showing an actual stored prediction (score 38.34)</em>
+</p>
+
+</details>
+
 ## 🗄 Database
 
 The application connects to a MySQL database (`database_func.py`) with two tables referenced
@@ -202,6 +227,10 @@ versions (fastai, timm), none of which are bundled in this repository.
 | ✅ Implementation certificate | From the Cherkasy City Society for the Protection of Animals "Друг" (Friend) | [`academic/implementation-certificate/`](academic/implementation-certificate/) |
 | 📝 Supervisor review | Снитюк В. Є. | [`academic/supervisor-review/`](academic/supervisor-review/) |
 | 📝 Reviewer report | | [`academic/reviewer-report/`](academic/reviewer-report/) |
+
+<p align="center">
+  <img src="assets/screenshots/defence_title_slide.png" alt="Defence presentation title slide" width="500">
+</p>
 
 ### 🇺🇦 Короткий опис українською
 
@@ -308,7 +337,8 @@ masters_diploma_2022/
 ├── assets/
 │   ├── architecture/
 │   ├── research/
-│   └── ui/
+│   ├── ui/
+│   └── screenshots/
 └── docs/
     ├── legacy-notes.md
     ├── demo.md
