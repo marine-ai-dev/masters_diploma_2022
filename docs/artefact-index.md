@@ -43,6 +43,7 @@ Destination: this repository (`marine-ai-dev/masters_diploma_2022`).
 | Screenshot (from defence pptx) | `assets/screenshots/webapp_predict_section.png` | `4e0dec4ba91cf36437088dbe4f1167c26c445309c7af06ceaee69648edd22e5d` | Slide 57 — "Predict the attractiveness of pet" section. |
 | Screenshot (from defence pptx) | `assets/screenshots/webapp_model_parameters.png` | `ab4d478ef2dcb49536f7e9bc00155ed7d821498e2d5d84aa18c02fd03823c677` | Slide 64 — model parameters as shown in the running app. |
 | Screenshot (from defence pptx) | `assets/screenshots/database_pets_table.png` | `fcf78f979e0a71f1db9930df5c57619dd07399c7e1754946a522c625ec343e56` | Slide 63 — MySQL `PETS` table (matches `database/sample_data/pets_data.csv`). |
+| Screenshot (from defence pptx) | `assets/screenshots/webapp_footer.png` | `dd1e1e7be4457791e0e37961f8d2416a6e449e2173640aa5f20f93816f609722` | Slide 66 — web app footer. |
 | Security/config notes | `docs/legacy-notes.md` | — | Documents the exact sanitization diff and a transcription-fidelity caveat. |
 | Environment template | `.env.example` | — | Placeholders only. |
 
