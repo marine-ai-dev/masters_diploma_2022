@@ -238,6 +238,11 @@ from the HTML template this site was built on, whose redistribution rights are u
   <em>MySQL CASE_HISTORY table showing an actual stored prediction (score 38.34)</em>
 </p>
 
+<p align="center">
+  <img src="assets/screenshots/webapp_footer.png" alt="Web application footer" width="700"><br>
+  <em>Footer with attribution and contact links</em>
+</p>
+
 </details>
 
 ## 🗄 Database
