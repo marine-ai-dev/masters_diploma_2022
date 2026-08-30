@@ -35,7 +35,14 @@ Destination: this repository (`marine-ai-dev/masters_diploma_2022`).
 | Screenshot (from defence pptx) | `assets/screenshots/webapp_upload_ui.png` | `3579854288d4e02200d2469d3afe758513c3d5524c8e16d03c1e4dbbcdcbdd65` | Slide 58 — annotated screenshot of the real running web app's upload UI. |
 | Screenshot (from defence pptx) | `assets/screenshots/webapp_database_export_ui.png` | `2e0f6032b1daa62d345f303e8ede6c456a1920855b142808485c7fd1b1815c31` | Slide 61 — annotated screenshot of the CSV export UI. |
 | Screenshot (from defence pptx) | `assets/screenshots/database_case_history_result.png` | `86e188f3483ad34f62352f04dfe1b10a831122d7ece86f7994fab09c9a74c221` | Slide 62 — MySQL Workbench screenshot of `CASE_HISTORY` with a real stored prediction (38.34). |
-| Screenshot (from defence pptx) | `assets/research/experiment_5_swin_transformer_scores.png` | `46458334af8fa2c9814dd09edc998c722e20a9942ee4a111681008613c278514` | Slide 45 — Experiment #5 (Swin Transformer, 7-fold CV): Private Score 17.08097, Public Score 17.90201. |
+| Screenshot (from defence pptx) | `assets/research/experiment_5_swin_transformer_scores.png` | `46458334af8fa2c9814dd09edc998c722e20a9942ee4a111681008613c278514` | Slide 45 — Experiment #5 (Swin Transformer, 7-fold CV): Private Score 17.08097, Public Score 17.90201 (same as Model-34, the final selected model). |
+| Screenshot (from defence pptx) | `assets/research/experiments_summary_table.png` | `06d08b6e9b90629710b15ab16119979332be0583ce55e75a05494b8ce233fa0a` | Slide 52 — full 6-model comparison table (Model-4/6/11/18/22/34), reproduced as a Markdown table in the README. |
+| Screenshot (from defence pptx) | `assets/architecture/function_tree_diagram.png` | `ef363eed297223d30cb9ed29e33382bf613deb518dfd1cfff8b7f7b000f07fbe` | Slide 20 — function tree ("Дерево функцій"). |
+| Screenshot (from defence pptx) | `assets/screenshots/webapp_section_divider.png` | `3f89c6774c21abc9b3395debff7dca1dded977f2a51c352772117bcd734d0269` | Slide 53 — "Веб-додаток" section divider. |
+| Screenshot (from defence pptx) | `assets/screenshots/webapp_hero_screenshot.png` | `faf07de98a47a19d5ed06438f3c8a93b0d047b76a5b6a8e9c2efbe15580b22d0` | Slide 56 — web app landing screen. |
+| Screenshot (from defence pptx) | `assets/screenshots/webapp_predict_section.png` | `4e0dec4ba91cf36437088dbe4f1167c26c445309c7af06ceaee69648edd22e5d` | Slide 57 — "Predict the attractiveness of pet" section. |
+| Screenshot (from defence pptx) | `assets/screenshots/webapp_model_parameters.png` | `ab4d478ef2dcb49536f7e9bc00155ed7d821498e2d5d84aa18c02fd03823c677` | Slide 64 — model parameters as shown in the running app. |
+| Screenshot (from defence pptx) | `assets/screenshots/database_pets_table.png` | `fcf78f979e0a71f1db9930df5c57619dd07399c7e1754946a522c625ec343e56` | Slide 63 — MySQL `PETS` table (matches `database/sample_data/pets_data.csv`). |
 | Security/config notes | `docs/legacy-notes.md` | — | Documents the exact sanitization diff and a transcription-fidelity caveat. |
 | Environment template | `.env.example` | — | Placeholders only. |
 
