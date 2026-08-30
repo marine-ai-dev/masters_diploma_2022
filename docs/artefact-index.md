@@ -31,6 +31,11 @@ Destination: this repository (`marine-ai-dev/masters_diploma_2022`).
 | Curated diagram | `assets/research/k_fold_diagram.png` | `775960aae575765f1bb970357019bdf4daeaf81a29d627307f7cd6073f3c8a7e` | Stratified K-fold cross-validation diagram. |
 | Curated diagram | `assets/research/pattern_recognition_systems.png` | `4c73d98c2821234103ddefc5c140dde26365b6c162589f074545c646dd1d1238` | Pattern-recognition systems comparison diagram. |
 | Curated diagram | `assets/ui/website_page_diagram.png` | `598dc96c82da7d3b6782c43a6cd1a3effda76edc27ba9ea628b5ec6e2ab4cc95` | One representative web-app page/interface diagram (1 of 6 available; the rest remain in the source Drive archive to avoid an unstructured image dump). |
+| Screenshot (from defence pptx) | `assets/screenshots/defence_title_slide.png` | `4836458fc2c9dfe18d3fde1b22e9690710fe6cbe15834e310023f917c3128ab9` | Slide 1 of the final defence presentation. |
+| Screenshot (from defence pptx) | `assets/screenshots/webapp_upload_ui.png` | `3579854288d4e02200d2469d3afe758513c3d5524c8e16d03c1e4dbbcdcbdd65` | Slide 58 — annotated screenshot of the real running web app's upload UI. |
+| Screenshot (from defence pptx) | `assets/screenshots/webapp_database_export_ui.png` | `2e0f6032b1daa62d345f303e8ede6c456a1920855b142808485c7fd1b1815c31` | Slide 61 — annotated screenshot of the CSV export UI. |
+| Screenshot (from defence pptx) | `assets/screenshots/database_case_history_result.png` | `86e188f3483ad34f62352f04dfe1b10a831122d7ece86f7994fab09c9a74c221` | Slide 62 — MySQL Workbench screenshot of `CASE_HISTORY` with a real stored prediction (38.34). |
+| Screenshot (from defence pptx) | `assets/research/experiment_5_swin_transformer_scores.png` | `46458334af8fa2c9814dd09edc998c722e20a9942ee4a111681008613c278514` | Slide 45 — Experiment #5 (Swin Transformer, 7-fold CV): Private Score 17.08097, Public Score 17.90201. |
 | Security/config notes | `docs/legacy-notes.md` | — | Documents the exact sanitization diff and a transcription-fidelity caveat. |
 | Environment template | `.env.example` | — | Placeholders only. |
 
@@ -40,6 +45,11 @@ session, or downloaded directly by the repository owner) and moved into the repo
 `cp`/`unzip`/`shasum` — not by routing binary content through a conversational tool-call as
 base64 text. SHA-256 hashes were verified identical between the Drive download and the
 repository copy for every file listed with a hash above.
+
+The five screenshot PNGs were extracted from the defence presentation (`.pptx`) by
+converting it locally with LibreOffice (`soffice --headless --convert-to pdf`) and then
+rendering the relevant PDF pages to PNG with `pdftoppm` (poppler) — both installed via
+Homebrew for this purpose. No manual retyping or reconstruction was involved.
 
 ## Not migrated
 
